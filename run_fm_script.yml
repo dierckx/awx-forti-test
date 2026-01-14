@@ -16,6 +16,8 @@
       environment:
         # Explicitly pass the host variable to the script's environment
         ANSIBLE_HOST: "{{ inventory_hostname }}"
+        # Pass the custom inventory variable 'fmg_adom_name' to the Python script as 'FMG_ADOM'
+        FMG_ADOM: "{{ fmg_adom_name }}" 
 
     - name: Display script output
       ansible.builtin.debug:
