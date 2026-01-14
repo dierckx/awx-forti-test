@@ -9,7 +9,7 @@
       # and executes it on the managed host. 
       # Because FortiManager isn't running an OS with python in this context,
       # we run it on the 'localhost' (the AWX EE) and pass the FMG host info.
-      ansible.builtin.script: ./custom_script.py
+      ansible.builtin.script: ./fm-test.py
       # We must delegate the task to localhost to run the script in the EE
       delegate_to: localhost
       register: script_output
