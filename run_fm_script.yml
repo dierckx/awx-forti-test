@@ -1,0 +1,22 @@
+---
+- name: Run custom FortiManager Python script
+  hosts: hob-fm-0001.atom.ads # This matches the group name in your Inventory
+  gather_facts: false
+
+  tasks:
+    - name: Execute the custom python script
+      # The 'script' module copies the script to a temporary location 
+      # and executes it on the managed host. 
+      # Because FortiManager isn't running an OS with python in this context,
+      # we run it on the 'localhost' (the AWX EE) and pass the FMG host info.
+      ansible.builtin.script: ./custom_script.py
+      # We must delegate the task to localhost to run the script in the EE
+      delegate_to: localhost
+      register: script_output
+      environment:
+        # Explicitly pass the host variable to the script's environment
+        ANSIBLE_HOST: "{{ inventory_hostname }}"
+
+    - name: Display script output
+      ansible.builtin.debug:
+        var: script_output.stdout_lines
