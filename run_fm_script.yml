@@ -1,6 +1,6 @@
 ---
 - name: Run custom FortiManager Python script
-  hosts: hob-fm-0001.atom.ads # This matches the group name in your Inventory
+  hosts: Fortinet Test # This matches the group name in your Inventory
   gather_facts: false
 
   tasks:
