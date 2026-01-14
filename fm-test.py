@@ -6,8 +6,8 @@ import sys
 # when running against a host in the inventory.
 
 HOST = os.environ.get('ANSIBLE_HOST')
-USER = os.environ.get('ANSIBLE_USER')
-PASSWORD = os.environ.get('ANSIBLE_PASS') # Or ANSIBLE_SSH_PASS
+USER = os.environ.get('ANSIBLE_NET_USERNAME')
+PASSWORD = os.environ.get('ANSIBLE_NET_PASSWORD') # Or ANSIBLE_SSH_PASS
 ADOM = os.environ.get('ADOM_NAME', 'global') # Use an extra var for ADOM
 
 if not all([HOST, USER, PASSWORD]):
