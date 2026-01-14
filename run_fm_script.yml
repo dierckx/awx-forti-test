@@ -1,6 +1,6 @@
 ---
 - name: Run custom FortiManager Python script
-  hosts: Fortinet Test # This matches the group name in your Inventory
+  hosts: fortimanagers # This matches the group name in your Inventory
   gather_facts: false
 
   tasks:
