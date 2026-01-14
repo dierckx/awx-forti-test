@@ -8,7 +8,7 @@ import sys
 HOST = os.environ.get('ANSIBLE_HOST')
 USER = os.environ.get('ANSIBLE_NET_USERNAME')
 PASSWORD = os.environ.get('ANSIBLE_NET_PASSWORD') # Or ANSIBLE_SSH_PASS
-ADOM = os.environ.get('ADOM_NAME', 'global') # Use an extra var for ADOM
+ADOM = os.environ.get('FMG_ADOM', 'global') # Use an extra var for ADOM
 
 if not all([HOST, USER, PASSWORD]):
     print("Error: Required environment variables not set by AWX.")
